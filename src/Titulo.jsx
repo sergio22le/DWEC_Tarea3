@@ -15,20 +15,20 @@ const Titulo = () => {
 
     const cambiarImagen = () => {
         setIndiceImagen(indiceActualImagen => {
-            if ((indiceActualImagen + 1) > 2) {
+            if ((indiceActualImagen + 1) >= imagenesPorCategoria.length) {
                 setIndiceCategoria(indiceActualCategoria => {
-                    if ((indiceActualCategoria + 1) > 2) {
-                        console.log("Reinicio indice categoria.");
+                    if ((indiceActualCategoria + 1) >= categorias.length) {
+                        // console.log("Reinicio indice categoria.");
                     return 0;
                     } 
-                    console.log("Cambio indice categoria.");
+                    // console.log("Cambio indice categoria.");
                     return indiceActualCategoria + 1;
                     
                 });
-                console.log("Reinicio indice imagen.");
+                // console.log("Reinicio indice imagen.");
                 return 0;
             }
-            console.log("Cambio indice imagen.");
+            // console.log("Cambio indice imagen.");
             return indiceActualImagen + 1;
         });
         renderizar();
@@ -37,7 +37,7 @@ const Titulo = () => {
     const renderizar = () => {
         setTimeout(() => {
             cambiarImagen();
-        }, 10000);
+        }, 2000);
     };
 
     if (contador === 0) {
